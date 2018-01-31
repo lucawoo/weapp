@@ -1,0 +1,41 @@
+<view class="container">
+    <view class="tips">输入手机号可以快速查询历史车辆的违章哦~</view>
+    <view class="form">
+        <view class="ui-cell">
+            <view class="ui-cell__hd">手机号</view>
+            <view class="ui-cell__bd">
+                <input type="number" bindinput="bindPhoneChange" placeholder="请输入手机号" maxlength="11" placeholder-class="ui-placeholder"></input>
+            </view>
+        </view>
+        <view class="ui-cell">
+            <view class="ui-cell__hd">验证码</view>
+            <view class="ui-cell__bd">
+                <input type="number" bindinput="bindVcodeChange" placeholder="请输入验证码" maxlength="4" placeholder-class="ui-placeholder"></input>
+            </view>
+            <view class="ui-cell__ft">
+                <button wx:if="{{canGetVcode && vcodeStatus == 0}}" class="ui-btn ui-btn_mini vcode-btn" bindtap="getVcode">获取验证码</button>
+                <button wx:else class="ui-btn ui-btn_mini ui-btn_mini-disabled vcode-btn" bindtap="getVcode">{{vcodeText}}</button>
+            </view>
+        </view>
+    </view>
+
+    <button class="login-btn ui-btn {{canLogin ? '' : 'ui-btn_disabled'}}" bindtap="login">登录</button>
+
+    <view class="desc">
+        <view class="desc__item">
+            <image class="desc__icon" src="/images/illegal/jingzhun@2x.png"></image>
+            <text class="desc__text1">精准</text>
+            <text class="desc__text2">官方数据直连</text>
+        </view>
+        <view class="desc__item">
+            <image class="desc__icon" src="/images/illegal/anquan@2x.png"></image>
+            <text class="desc__text1">安全</text>
+            <text class="desc__text2">官方合作办理</text>
+        </view>
+        <view class="desc__item">
+            <image class="desc__icon" src="/images/illegal/kuaisu@2x.png"></image>
+            <text class="desc__text1">快速</text>
+            <text class="desc__text2">专业办理渠道</text>
+        </view>
+    </view>
+</view>

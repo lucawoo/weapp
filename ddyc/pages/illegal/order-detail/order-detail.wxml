@@ -1,0 +1,81 @@
+<view class="container">
+    <view class="tips f-32">
+        <image wx:if="{{order.orderStatusIcon > 1}}" src="../../../images/illegal/end@2x.png"></image>
+        <image wx:else src="../../../images/illegal/zhifu_icon@2x.png"></image>
+        {{order.orderStatusName}}
+    </view>
+    <view class="progress">
+        <view wx:for="{{order.orderFlowList}}" wx:key="iconId" class="progress__item {{item.arrived ? 'done' : ''}}">
+            <image wx:if="{{item.iconId == 9}}" src="../../../images/illegal/quxiao_icon{{item.arrived ? '' : '_grey'}}@2x.png"></image>
+            <image wx:elif="{{item.iconId == 10}}" src="../../../images/illegal/dingdan_icon{{item.arrived ? '' : '_grey'}}@2x.png"></image>
+            <image wx:elif="{{item.iconId == 11}}" src="../../../images/illegal/fuwu_icon{{item.arrived ? '' : '_grey'}}@2x.png"></image>
+            <image wx:else="{{item.iconId == 12}}" src="../../../images/illegal/wancheng_icon{{item.arrived ? '' : '_grey'}}@2x.png"></image>
+            <view class="progress__text">{{item.statusName}}</view>
+            <view class="progress__time">{{item.logTime}}</view>
+        </view>
+    </view>
+    
+    <view class="group">
+        <view class="group__hd">{{order.packageName}}</view>
+        <view class="group__bd">
+            <view class="ui-cell">
+                <view class="ui-cell__bd">
+                    <view wx:for="{{order.serviceInfoList}}" wx:key="item.text">{{item.label}}<font>{{item.text}}</font></view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="group">
+        <view wx:for="{{order.packageList}}" wx:key="packageName" wx:if="{{order.packageList}}" class="ui-cell">
+            <view class="ui-cell__bd">{{item.packageName}}</view>
+            <view class="ui-cell__ft"><text wx:for="{{item.privilegeList}}">{{item}}</text></view>
+        </view>
+        <view class="ui-cell" wx:if="{{order.payBalanceLabel}}">
+            <view class="ui-cell__bd">{{order.payBalanceLabel}}</view>
+            <view class="ui-cell__ft c-warn">{{order.payBalance}}</view>
+        </view>
+        <view class="ui-cell" wx:if="{{order.payMoneyLabel}}">
+            <view class="ui-cell__bd">{{order.payMoneyLabel}}</view>
+            <view class="ui-cell__ft c-warn">{{order.payMoney}}</view>
+        </view>
+        <view class="ui-cell" wx:if="{{order.refundMoney}}">
+            <view class="ui-cell__bd">退款金额</view>
+            <view class="ui-cell__ft">{{order.refundMoney}}</view>
+        </view>
+    </view>
+
+    <view class="group detail">
+        <view class="group__hd">违章详情</view>
+        <view class="group__bd">
+            <view wx:for="{{order.violationItemList}}" wx:key="violationTime" class="detail__item">
+                <view class="c-light-gray">{{item.violationTime}}</view>
+                <view>{{item.violationReason}}</view>
+                <view class="c-light-gray">{{item.violationAddress}}</view>
+                <view class="detail__info">
+                    <view>扣分<text>{{item.finePoints}}</text></view>
+                    <view>罚款<text>¥{{item.fineAmount}}</text></view>
+                    <view>代办费<text>¥{{item.serviceFee}}</text></view>
+                </view>
+            </view>      
+        </view>
+    </view>
+
+    <view wx:for="{{order.orderInfoList}}" wx:key="text" class="item order-info">
+        <view class="item__bd">{{item.label}}</view>
+        <view class="item__ft">{{item.text}}</view>
+    </view>
+    
+    <view wx:if="{{!order.specialInfo.showPayButton && order.specialInfo.showContactButton}}" class="ui-bottom-bar">
+        <button bindtap="callPhone" data-phone="{{order.specialInfo.contactPhone}}" class="ui-btn">联系我们</button>
+    </view>
+
+    <view wx:if="{{order.specialInfo.showPayButton && !order.specialInfo.showContactButton}}"  class="ui-bottom-bar">
+        <button bindtap="pay" class="ui-btn ui-btn_warn">去支付</button>
+    </view>
+
+    <view  wx:if="{{order.specialInfo.showPayButton && order.specialInfo.showContactButton}}" class="ui-bottom-bar pay">
+        <button bindtap="pay" class="ui-btn ui-btn_warn pay-btn">去支付</button>
+        <button bindtap="callPhone" data-phone="{{order.specialInfo.contactPhone}}" class="ui-btn ui-btn_plain contact-btn">联系我们</button>
+    </view>
+</view>

@@ -1,0 +1,145 @@
+.container {
+    padding-bottom: 150rpx;
+}
+.tips {
+    background: #fff;
+    border-bottom: 1rpx solid #E4E7E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28rpx 0;
+    color: #73768B;
+}
+.tips image {
+    width: 45rpx;
+    height: 44rpx;
+    margin-right: 20rpx;
+}
+.progress {
+    margin-top: 20rpx;
+    padding: 18rpx 80rpx 25rpx 80rpx;
+    display: flex;
+    border-bottom: 1rpx solid #E4E7E8;
+    background: #fff;
+}
+.progress__item {
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+.progress__item + .progress__item:before {
+    content: "";
+    position: absolute;
+    left: -20%;
+    top: 30rpx;
+    width: 40%;
+    border-top: 4rpx dotted #BDC2C8;
+}
+.progress image {
+    width: 64rpx;
+    height: 64rpx;
+}
+.progress__text {
+    margin-top: 3rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #AAB0B7;
+}
+.progress__time {
+    font-size: 22rpx;
+    line-height: 30rpx;
+    color: #AFAFAF;
+}
+.done + .progress__item:before {
+    border-top-color: #0068DC;
+}
+.done .progress__text {
+    color: #0068DC;
+}
+
+.group {
+    background: #fff;
+    margin-top: 20rpx;
+}
+.group__hd {
+    padding: 30rpx;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    margin-top: 20rpx;
+    border-bottom: 1rpx solid #E4E7E8;
+    background: #fff;
+}
+.ui-cell {
+    margin-left: 30rpx;
+    border-top: 1rpx solid #E4E7E8;
+    padding: 30rpx 27rpx 30rpx 0;
+}
+.ui-cell:first-child {
+    border-top: 0;
+}
+.ui-cell__bd {
+    color: #73768B;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+.ui-cell__ft {
+    font-size: 32rpx;
+    line-height: 35rpx;
+}
+.ui-cell__bd font {
+    float: right;
+    color: #AAB0B7;
+}
+.ui-cell__bd view + view {
+    margin-top: 23rpx;
+}
+.detail .group__bd {
+    padding: 30rpx 40rpx;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    border-bottom: 1rpx solid #E4E7E8;
+}
+.detail view + view {
+    margin-top: 7rpx;
+}
+.detail__info {
+    margin-top: 10rpx;
+}
+.detail__info view {
+    display: inline-block;
+}
+.detail__info view + view {
+    margin-left: 74rpx;
+}
+.detail__info text {
+    color: #FF7421;
+    margin-left: 22rpx;
+}
+.detail__item + .detail__item {
+    margin-top: 60rpx;
+}
+.pay {
+    padding-left: 50rpx;
+    padding-right: 50rpx;
+}
+.pay .ui-btn {
+    display: inline-block;
+    margin: 0;
+    width: 300rpx;
+}
+.ui-btn + .ui-btn {
+    margin-left: 50rpx;
+}
+.contact-btn {
+    line-height: 80rpx;
+}
+
+.item {
+    display: flex;
+    padding: 30rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #E4E7E8;
+}
+.item__bd {
+    flex: 1;
+}

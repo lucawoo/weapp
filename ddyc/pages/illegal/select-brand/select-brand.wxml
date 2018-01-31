@@ -1,0 +1,33 @@
+<!--pages/select-brand/select-brand.wxml-->
+<view class="container">
+    <scroll-view scroll-y="true" class="brand" scroll-into-view="{{toLetter}}">
+        <block wx:for="{{brands}}" wx:key="title">
+            <view id="letter-{{item.title}}" class="brand__letter">{{item.title}}</view>
+            <view class="brand__list">
+                <view class="brand__item" wx:for="{{item.items}}" wx:key="value" data-name="{{item.name}}" data-id="{{item.value}}" bindtap="tapBrand">
+                    <image src="{{item.icon}}"></image>
+                    <view>{{item.name}}</view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+
+    <view class="letter-nav">
+        <text catchtouchstart="tapLetter" data-letter="{{item}}" wx:for="{{letters}}" wx:key="*this">{{item}}</text>
+    </view>
+
+    <view class="series" hidden="{{hideSeries}}">
+        <view class="mask" bindtap="hideSeries"></view>
+        <scroll-view scroll-y class="list">
+            <text wx:for="{{series}}" wx:key="seriesId" data-name="{{item.seriesName}}" data-id="{{item.seriesId}}" bindtap="tapSeries">{{item.seriesName}}</text>
+        </scroll-view>
+    </view>
+
+    <view class="models" hidden="{{hideModels}}">
+        <view class="mask" bindtap="hideModels"></view>
+        <scroll-view scroll-y class="list">
+            <text wx:for="{{models}}" wx:key="modelId" data-name="{{item.modelName}}" data-id="{{item.modelId}}" bindtap="tapModel">{{item.modelName}}</text>
+        </scroll-view>
+    </view>
+    
+</view>

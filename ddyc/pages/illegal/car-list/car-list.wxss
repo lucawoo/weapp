@@ -1,0 +1,37 @@
+/* pages/car-list/car-list.wxss */
+.item {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.10);
+    border-radius: 10rpx;
+    margin: 20rpx 25rpx 0 25rpx;
+    padding: 32rpx 0 24rpx 20rpx;
+}
+.item__hd image {
+    width: 94rpx;
+    height: 94rpx;
+    margin-right: 13rpx;
+}
+.item__bd {
+    flex: 1;
+    font-size: 32rpx;
+    line-height: 45rpx;
+    color: #5D5D5D;
+}
+.item__tips {
+    font-size: 24rpx;
+    line-height: 33rpx;
+    margin-top: 2rpx;
+    color: #AAB0B7;
+}
+.item__ft {
+    padding: 16rpx 30rpx;
+}
+.item__ft image {
+    width: 62rpx;
+    height: 62rpx;
+}
+.ui-btn {
+    margin-top: 52rpx;
+}

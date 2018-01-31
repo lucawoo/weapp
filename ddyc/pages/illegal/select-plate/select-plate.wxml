@@ -1,0 +1,11 @@
+<!--pages/select-plate/select-plate.wxml-->
+<view class="container">
+    <view hidden="{{hideProvince}}" class="list">
+        <text wx:for="{{provinceList}}" wx:key="sn" bindtap="tapProvince" data-sn="{{item.sn}}">{{item.sn}}({{item.name}})</text>
+    </view>
+
+    <view hidden="{{hideCity}}" class="list">
+        <text wx:for="{{cityList}}" wx:key="*this" bindtap="tapCity" data-text="{{item}}">{{item}}</text>
+    </view>
+</view>
+

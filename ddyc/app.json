@@ -1,0 +1,18 @@
+{
+  "pages":[
+    "pages/illegal/record/record",
+    "pages/illegal/deal/deal",
+    "pages/login/login",
+    "pages/illegal/car-info/car-info",
+    "pages/illegal/select-city/select-city",
+    "pages/illegal/select-brand/select-brand",
+    "pages/illegal/car-list/car-list",
+    "pages/illegal/select-plate/select-plate"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "违章代缴",
+    "navigationBarTextStyle":"black"
+  }
+}

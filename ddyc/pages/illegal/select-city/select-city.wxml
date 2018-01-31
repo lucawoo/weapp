@@ -1,0 +1,26 @@
+<!--pages/select-city/select-city.wxml-->
+<view class="container">
+    <view class="main">
+        <scroll-view scroll-y class="province-list">
+            <text class="tips">暂不支持以下地区的查违章：广西、西藏、青海、香港、澳门、台湾</text>
+            <view bindtap="selectProvince" wx:for="{{provinceList}}" wx:key="id" data-id="{{item.id}}" class="ui-arrow_right {{item.current ? 'current' : ''}}">{{item.name}}</view>
+        </scroll-view>
+        <scroll-view scroll-y class="city-list" hidden="{{hideCity}}">
+            <view bindtap="selectCity" wx:for="{{cityList}}" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" class="{{item.current ? 'current' : ''}}">{{item.name}}</view>
+        </scroll-view>
+    </view>
+    <view class="menu">
+        <view class="menu__bd">
+            <view class="menu__text">已选（最多3个）</view>
+            <view class="menu__list">
+                <block wx:for="{{selectedCityList}}" wx:key="id">
+                    <view wx:if="{{item.isRegisteredAddress}}" data-id="{{item.id}}" class="tag tag_default"><text>{{item.name}}</text></view>
+                    <view wx:else bindtap="deleteCity" data-id="{{item.id}}" class="tag"><text>{{item.name}}</text></view>
+                </block>
+            </view>
+        </view>
+        <view class="menu__ft">
+            <view bindtap="confirm" class="ui-btn">确认</view>
+        </view>
+    </view>
+</view>

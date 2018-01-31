@@ -1,0 +1,29 @@
+<!--pages/car-list/car-list.wxml-->
+<view hidden="{{!showPage}}" class="container">
+    <view class="item" wx:for="{{carList}}" wx:key="carId" data-id="{{item.carId}}" bindtap="gotoRecord">
+        <view class="item__hd">
+            <image src="{{item.brandLogo}}"></image>
+        </view>
+        <view class="item__bd">
+            <view>{{item.carNum}}</view>
+        </view>
+        <view class="item__ft" catchtap="edit" data-id="{{item.carId}}">
+            <image src="../../../images/illegal/icon_edit@2x.png"></image>
+        </view>
+    </view>
+
+    <!--<view class="item">
+        <view class="item__hd">
+            <image src="../../../images/illegal/icon_edit@2x.png"></image>
+        </view>
+        <view class="item__bd">
+            <view>浙A1515R</view>
+            <view class="item__tips">您的车辆信息不完整，请修改。</view>
+        </view>
+        <view class="item__ft">
+            <image src="../../../images/illegal/icon_edit@2x.png"></image>
+        </view>
+    </view>-->
+    
+    <button bindtap="add" wx:if="{{carList.length < 3}}" class="ui-btn">新增查询车辆</button>
+</view>

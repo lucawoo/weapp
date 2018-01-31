@@ -1,0 +1,6 @@
+<template name="progress">
+    <view wx:if="{{showProgress}}" class="ui-progress">
+        <view style="width:{{progressWidth}} ; transition:width {{showProgress?'2':'0'}}s linear" class="ui-progress__inner"></view>
+        <view class="ui-progress__text">正在为您获取最新信息</view>
+    </view>
+</template>

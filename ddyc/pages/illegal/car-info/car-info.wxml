@@ -1,0 +1,65 @@
+<view hidden="{{!showPage}}" class="container">
+    <view class="section">
+        <view class="ui-cell plate">
+            <view class="ui-cell__hd">车牌号码</view>
+            <view class="ui-cell__ft" bindtap="selectPlate">
+                <view class="ui-arrow_bottom">{{plateCity}}</view>
+            </view>
+            <view class="ui-cell__bd">
+                <input value="{{plateNumber}}" bindinput="inputPlate" placeholder="请输入车牌号" placeholder-class="ui-placeholder" maxlength="6" />
+            </view>
+        </view>
+        <view class="ui-cell" bindtap="selectBrand">
+            <view class="ui-cell__hd">品牌车系</view>
+            <view class="ui-cell__bd">
+                <view wx:if="{{brandName}}" class="ui-arrow_right">{{brandName}} {{seriesName}} {{modelName}}</view>
+                <view wx:else class="ui-arrow_right ui-placeholder">请选择品牌车系</view>
+            </view>
+        </view>
+        <view class="ui-cell" bindtap="selectCity">
+            <view class="ui-cell__hd">查询城市</view>
+            <view class="ui-cell__bd">
+                <view wx:if="{{cityList.length == 0}}" class="ui-arrow_right ui-placeholder">查询城市，最多选3个</view>
+                <view wx:else class="ui-arrow_right ui-placeholder">
+                    <block wx:for="{{cityList}}" wx:key="id">
+                        <view wx:if="{{item.isRegisteredAddress}}" data-id="{{item.id}}" class="tag tag_default">{{item.name}}</view>
+                        <view wx:else catchtap="deleteCityList" data-id="{{item.id}}" class="tag">{{item.name}}</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="section">
+        <view wx:if="{{needFrameNumber}}" class="ui-cell">
+            <view class="ui-cell__hd">车牌识别代号</view>
+            <view class="ui-cell__bd">
+                <input value="{{vin}}" bindinput="inputFrame" placeholder="{{framePlaceholder}}" placeholder-class="ui-placeholder" />
+            </view>
+            <view class="ui-cell__ft">
+                <image bindtap="toggleFrameExample" class="example-icon" src="../../../images/illegal/question_icon@2x.png"></image>
+            </view>
+        </view>
+        <view wx:if="{{needEngineNumber}}" class="ui-cell">
+            <view class="ui-cell__hd">发动机号</view>
+            <view class="ui-cell__bd">
+                <input value="{{engineNo}}" bindinput="inputEngine" placeholder="{{enginePlaceholder}}" placeholder-class="ui-placeholder" />
+            </view>
+            <view class="ui-cell__ft">
+                <image bindtap="toggleEngineExample" class="example-icon" src="../../../images/illegal/question_icon@2x.png"></image>
+            </view>
+        </view>
+    </view>
+
+    <button bindtap="query" class="ui-btn query-btn {{disabledQueryBtn ? 'ui-btn_disabled' : ui-btn_disabled}}">保存并去查询</button>
+    <button wx:if="{{type == 'edit'}}" bindtap="deleteCar" class="ui-btn ui-btn_default">删除车辆</button>
+    
+</view>
+
+<view bindtap="toggleFrameExample" hidden="{{hideFrameExample}}" class="example">
+    <image src="https://store.ddyc.com/res/open/illegal/images/shilitu_zm1_pic_full-f417822f86.png"></image>
+</view>
+<view bindtap="toggleEngineExample" hidden="{{hideEngineExample}}" class="example">
+    <image src="https://store.ddyc.com/res/open/illegal/images/shilitu_zm_pic@2xcopy@2x-b7a5207ed3.png"></image>
+</view>
+

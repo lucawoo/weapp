@@ -1,0 +1,22 @@
+.ui-progress {
+    position: relative;
+    height: 32rpx;
+    background: #d9eeff;
+}
+.ui-progress__inner {
+    background: #36a3ff;
+    height: 100%;
+    width: 0%;
+}
+.ui-progress__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 24rpx;
+    color: #0068c1;
+    justify-content: center;
+    align-items: center;
+}
